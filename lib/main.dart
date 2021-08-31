@@ -21,7 +21,6 @@ import 'app.dart';
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 void main() async {
-  HttpOverrides.global = new MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
 
   setupLocator();
@@ -45,13 +44,4 @@ void downloadCallback(String id, DownloadTaskStatus status, int progress) {
   final SendPort send =
       IsolateNameServer.lookupPortByName('downloader_send_port');
   send.send([id, status, progress]);
-}
-
-class MyHttpOverrides extends HttpOverrides {
-  @override
-  HttpClient createHttpClient(SecurityContext context) {
-    return super.createHttpClient(context)
-      ..badCertificateCallback =
-          (X509Certificate cert, String host, int port) => true;
-  }
 }
