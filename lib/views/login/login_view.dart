@@ -44,7 +44,7 @@ class _LoginState extends State<Login> {
               SizedBox(
                 height: 60,
               ),
-              FrappeLogo(),
+              MCHNJLogo(),
               SizedBox(
                 height: 24,
               ),
@@ -296,7 +296,7 @@ class Title extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Login to Frappe',
+      'Login to MCHNJ',
       style: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.bold,
@@ -312,6 +312,17 @@ class FrappeLogo extends StatelessWidget {
       image: AssetImage('assets/frappe_icon.jpg'),
       width: 60,
       height: 60,
+    );
+  }
+}
+
+class MCHNJLogo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Image(
+      image: AssetImage('assets/mchnj_icon.jpeg'),
+      width: 120,
+      height: 120,
     );
   }
 }
